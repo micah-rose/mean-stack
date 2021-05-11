@@ -1,7 +1,9 @@
 const http = require('http');
+const app = require('./mean-backend/app');
 
-const server = http.createServer((req, res) => {
-    res.end('My first response.');
-});
+const PORT = process.env.PORT || 3000;
 
-server.listen(process.env.PORT || 3000);
+app.set('port', PORT);
+const server = http.createServer(app);
+
+server.listen(PORT);
