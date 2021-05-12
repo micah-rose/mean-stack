@@ -1,8 +1,10 @@
 const express = require('express');
+const connectDB = require('../config/db');
 
 const Post = require('./models/post');
 
 const app = express();
+connectDB();
 app.use(express.json());
 
 app.use((req, res, next) => {
